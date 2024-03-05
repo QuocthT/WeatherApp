@@ -13,3 +13,6 @@
     background-image: linear-gradient(to bottom, #4F8000, #2F313A)
   }
   
+  .footer-button.active svg {
+    fill: white;
+  }
