@@ -1,0 +1,16 @@
+/* Footer.css */
+.app-footer {
+    background-color: #F0F0F0; /* Placeholder color */
+    display: flex;
+    justify-content: space-around; /* Distribute buttons */
+    align-items: center;
+    padding: 15px;
+    position: fixed; /* Keep the footer at the bottom */
+    bottom: 0;
+    width: 100%; 
+  }
+  
+  .footer-button {
+    /* Style your buttons as needed */
+  }
+  
