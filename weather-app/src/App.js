@@ -1,12 +1,13 @@
 import "./App.css";
 import Footer from "./Footer.js";
-import EightDayForecast from "./EightDayForecast.js";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <EightDayForecast />
+      <h1>Weather Forecast App</h1>
+      <Weather />
       <Footer />
     </div>
   );
