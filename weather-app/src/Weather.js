@@ -7,7 +7,7 @@ const Weather = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid={24ce0a767ad303d9567854bce1d17ff5}`
+        `https://pro.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid={24ce0a767ad303d9567854bce1d17ff5}`
       );
       setWeatherData(response.data);
       console.log(response.data); //You can see all the weather data in console log
