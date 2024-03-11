@@ -1,0 +1,21 @@
+.forecast-day {
+    display: flex; 
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.day, .temp-min, .temp-max {
+    margin-right: 15px;
+}
+
+.weather-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.temp-divider {
+    width: 1px;
+    height: 20px;
+    background-color: #999;
+    margin: 0 10px;
+}

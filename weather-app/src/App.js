@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Footer from "./Footer.js";
+import EightDayForecast from "./EightDayForecast.js";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <EightDayForecast />
       <Footer />
     </div>
   );
