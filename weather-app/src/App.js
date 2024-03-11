@@ -25,5 +25,4 @@ function App() {
     </div>
   );
 }
-// dasdasdas
 export default App;
