@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./Footer.js";
-import Weather from "./Weather";
+import Weather from "./Weather.js";
 
 function App() {
   return (

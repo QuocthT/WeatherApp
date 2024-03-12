@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 const Weather = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `https://pro.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=24ce0a767ad303d9567854bce1d17ff5`
-      );
-      setWeatherData(response.data);
-      console.log(response.data); //You can see all the weather data in console log
+      // Only fetch if city is not empty
+      if (city.trim() !== "") {
+        const response = await axios.get(
+          `https://pro.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=24ce0a767ad303d9567854bce1d17ff5`
+        );
+        setWeatherData(response.data);
+      }
     } catch (error) {
       console.error(error);
     }
   };
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, []);
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
