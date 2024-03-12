@@ -20,8 +20,8 @@ const CurrentWeather = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     onLocationClick(locationInput);
-    setLocationInput(""); // Clear input
-    toggleForm(); // Hide form after submitting
+    setLocationInput("");
+    toggleForm();
   };
 
   return (
