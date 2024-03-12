@@ -1,0 +1,19 @@
+.hourly-forecast {
+    display: flex;
+    flex-direction: column; /* Change to 'column' if you want a vertical layout */
+    align-items: center;
+  }
+  
+  .hourly-forecast-container {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; 
+  }
+  
+  .hourly-item {
+    margin-right: 15px;
+    padding: 10px; 
+    border: 1px solid #ccc;
+    text-align: center; /* Center content within each item */
+  }
+  
