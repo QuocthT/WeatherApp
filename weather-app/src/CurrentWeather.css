@@ -1,20 +1,20 @@
 /* CurrentWeather.css */
 .current-weather {
-    text-align: center; /* Center everything within the component */
+    text-align: center; 
 }
 
 .location {
-    font-size: 24px; /* Adjust the size as needed */
+    font-size: 24px; 
     font-weight: bold;
 }
 
 .current-conditions {
-    display: flex; /* Use flexbox for easy arrangement */
-    justify-content: center; /* Center elements horizontally */
-    align-items: center; /* Center elements vertically */
-    gap: 10px; /* Space between image and text */
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .temperature {
-    font-size: 36px; /* Make the temperature prominent */
+    font-size: 36px; 
 }

@@ -3,12 +3,22 @@ import axios from "axios";
 import CurrentWeather from "./CurrentWeather.js";
 
 const Weather = () => {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("London"); // Or any other default city
   const [weatherData, setWeatherData] = useState(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  const handleLocationClick = (newCity) => {
+    setCity(newCity);
+    fetchData();
+  };
+
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm); // Toggle the form visibility
+  };
+
   const fetchData = async () => {
     try {
-      // Only fetch if city is not empty
       if (city.trim() !== "") {
         const response = await axios.get(
           `https://pro.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=24ce0a767ad303d9567854bce1d17ff5`
@@ -19,32 +29,22 @@ const Weather = () => {
       console.error(error);
     }
   };
+
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handleInputChange = (e) => {
-    setCity(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchData();
-  };
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Get Weather</button>
-      </form>
       {weatherData ? (
         <>
-          <CurrentWeather weatherData={weatherData} /> {/* Pass the data */}
-          {/* ... (Remove the individual <p> tags you had earlier)*/}
+          <CurrentWeather
+            weatherData={weatherData}
+            onLocationClick={handleLocationClick}
+            showForm={showForm} // Pass the form state
+            toggleForm={toggleForm} // Pass the toggle function
+          />
         </>
       ) : (
         <p>Loading weather data...</p>
