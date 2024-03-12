@@ -8,7 +8,6 @@ const Weather = () => {
 
   const handleLocationClick = (newCity) => {
     setCity(newCity);
-    fetchData();
   };
 
   const [showForm, setShowForm] = useState(false);
@@ -33,7 +32,7 @@ const Weather = () => {
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [city]);
 
   return (
     <div>
