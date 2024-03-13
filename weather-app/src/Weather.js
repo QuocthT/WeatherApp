@@ -6,8 +6,8 @@ const Weather = () => {
   const [city, setCity] = useState("London"); // Or any other default city
   const [weatherData, setWeatherData] = useState(null);
 
-  const handleLocationClick = (newCity) => {
-    setCity(newCity);
+  const handleLocationClick = (city) => {
+    setCity(city);
   };
 
   const [showForm, setShowForm] = useState(false);

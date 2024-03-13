@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import moment from "moment";
 import "./HourlyForecast.css";
 
 const HourlyForecast = ({ currentLocation }) => {
   const [hourlyData, setHourlyData] = useState([]);
   const [error, setError] = useState(null);
-
+  const prevLocation = useRef(currentLocation);
   const openWeatherKey = "24ce0a767ad303d9567854bce1d17ff5";
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchHourlyData = async (location) => {
+    console.log("fetchHourlyData called with location:", location);
     setError(null);
     try {
       navigator.geolocation.getCurrentPosition(
@@ -32,15 +31,16 @@ const HourlyForecast = ({ currentLocation }) => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=metric`
     );
 
+    console.log("API Response:", forecastResponse.data);
     // Filter for the next 24 hours with 3-hour intervals
     const futureForecast = forecastResponse.data.list.filter((item, index) => {
-      const forecastTime = moment.unix(item.dt);
-      const now = moment();
-      const twentyFourHoursFromNow = moment().add(24, "hours");
+      const forecastDate = new Date(item.dt * 1000); // Convert Unix timestamp
+      const now = new Date();
+      const threeHoursFromNow = new Date(now.getTime() + 3 * 60 * 60 * 1000);
 
       return (
-        forecastTime.isAfter(now) &&
-        forecastTime.isBefore(twentyFourHoursFromNow) &&
+        forecastDate >= now &&
+        forecastDate <= threeHoursFromNow &&
         index % 3 === 0
       );
     });
@@ -48,7 +48,10 @@ const HourlyForecast = ({ currentLocation }) => {
     // Update hourly data
     setHourlyData(
       futureForecast.map((item) => ({
-        timePeriod: moment.unix(item.dt).format("h a - "), // Example: 3 PM -
+        timePeriod: new Date(item.dt * 1000).toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
         icon: item.weather[0].icon,
         temp: item.main.temp,
       }))
@@ -56,9 +59,16 @@ const HourlyForecast = ({ currentLocation }) => {
   };
 
   useEffect(() => {
-    console.log("City in HourlyForecast:", currentLocation);
-    fetchHourlyData(currentLocation);
-  }, [fetchHourlyData, currentLocation]);
+    console.log(
+      "useEffect triggered, City in HourlyForecast:",
+      currentLocation
+    );
+    if (prevLocation.current !== currentLocation) {
+      fetchHourlyData();
+      prevLocation.current = currentLocation;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLocation]);
 
   return (
     <div className="hourly-forecast">
