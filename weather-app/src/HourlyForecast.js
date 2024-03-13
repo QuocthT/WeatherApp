@@ -56,7 +56,8 @@ const HourlyForecast = ({ currentLocation }) => {
   };
 
   useEffect(() => {
-    fetchHourlyData();
+    console.log("City in HourlyForecast:", currentLocation);
+    fetchHourlyData(currentLocation);
   }, [fetchHourlyData, currentLocation]);
 
   return (

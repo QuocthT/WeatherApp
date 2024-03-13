@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CurrentWeather.css";
+
 const CurrentWeather = ({
   weatherData,
   onLocationClick,

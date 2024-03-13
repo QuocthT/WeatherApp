@@ -44,7 +44,7 @@ const Weather = () => {
             showForm={showForm} // Pass the form state
             toggleForm={toggleForm} // Pass the toggle function
           />
-          <HourlyForecast onLocationUpdate={city} />
+          <HourlyForecast currentLocation={city} />
         </>
       ) : (
         <p>Loading weather data...</p>
