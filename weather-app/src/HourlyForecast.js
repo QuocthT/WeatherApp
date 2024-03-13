@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 import "./HourlyForecast.css";
 
 const HourlyForecast = ({ currentLocation }) => {
@@ -7,23 +8,6 @@ const HourlyForecast = ({ currentLocation }) => {
   const [error, setError] = useState(null);
 
   const openWeatherKey = "24ce0a767ad303d9567854bce1d17ff5";
-
-  const extractHourFromTimestamp = (timestamp) => {
-    const date = new Date(timestamp * 1000);
-    const hours = date.getHours();
-    return hours < 10 ? `0${hours}:00` : `${hours}:00`;
-  };
-
-  // Function to filter only today's forecast data
-  const filterTodaysData = (forecastData) => {
-    const today = new Date();
-    const todayStr = today.toISOString().slice(0, 10);
-
-    return forecastData.list.filter((item) => {
-      const forecastDateStr = item.dt_txt.slice(0, 10);
-      return forecastDateStr === todayStr;
-    });
-  };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchHourlyData = async (location) => {
@@ -48,13 +32,23 @@ const HourlyForecast = ({ currentLocation }) => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=metric`
     );
 
-    // Filter for today's data
-    const todaysForecast = filterTodaysData(forecastResponse.data);
+    // Filter for the next 24 hours with 3-hour intervals
+    const futureForecast = forecastResponse.data.list.filter((item, index) => {
+      const forecastTime = moment.unix(item.dt);
+      const now = moment();
+      const twentyFourHoursFromNow = moment().add(24, "hours");
 
-    // Update hourly data with 3-hourly intervals
+      return (
+        forecastTime.isAfter(now) &&
+        forecastTime.isBefore(twentyFourHoursFromNow) &&
+        index % 3 === 0
+      );
+    });
+
+    // Update hourly data
     setHourlyData(
-      todaysForecast.map((item) => ({
-        hour: extractHourFromTimestamp(item.dt),
+      futureForecast.map((item) => ({
+        timePeriod: moment.unix(item.dt).format("h a - "), // Example: 3 PM -
         icon: item.weather[0].icon,
         temp: item.main.temp,
       }))
@@ -75,7 +69,7 @@ const HourlyForecast = ({ currentLocation }) => {
         <div className="hourly-forecast-container">
           {hourlyData.map((hourData, index) => (
             <div className="hourly-item" key={index}>
-              <div>{hourData.hour}</div>
+              <div>{hourData.timePeriod}</div>
               <img
                 src={`http://openweathermap.org/img/wn/${hourData.icon}@2x.png`}
                 alt={hourData.description}
