@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment-timezone";
 import "./HourlyForecast.css";
 
-const HourlyForecast = ({ currentLocation, geocodingData }) => {
+const HourlyForecast = ({ currentLocation }) => {
   const [hourlyData, setHourlyData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -16,15 +15,13 @@ const HourlyForecast = ({ currentLocation, geocodingData }) => {
   };
 
   // Function to filter only today's forecast data
-  const filterFutureData = (forecastData) => {
-    const timezone = geocodingData?.timezone;
-
-    const now = moment().tz(timezone);
-    const tomorrow = moment().add(1, "days").tz(timezone).startOf("day");
+  const filterTodaysData = (forecastData) => {
+    const today = new Date();
+    const todayStr = today.toISOString().slice(0, 10);
 
     return forecastData.list.filter((item) => {
-      const forecastTime = moment.unix(item.dt).tz(timezone);
-      return forecastTime.isAfter(now) && forecastTime.isBefore(tomorrow);
+      const forecastDateStr = item.dt_txt.slice(0, 10);
+      return forecastDateStr === todayStr;
     });
   };
 
@@ -51,11 +48,12 @@ const HourlyForecast = ({ currentLocation, geocodingData }) => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=metric`
     );
 
-    const futureForecast = filterFutureData(forecastResponse.data);
+    // Filter for today's data
+    const todaysForecast = filterTodaysData(forecastResponse.data);
 
     // Update hourly data with 3-hourly intervals
     setHourlyData(
-      futureForecast.map((item) => ({
+      todaysForecast.map((item) => ({
         hour: extractHourFromTimestamp(item.dt),
         icon: item.weather[0].icon,
         temp: item.main.temp,
@@ -64,8 +62,8 @@ const HourlyForecast = ({ currentLocation, geocodingData }) => {
   };
 
   useEffect(() => {
-    fetchHourlyData(); // Triggered on city or geocodingData change
-  }, [fetchHourlyData, currentLocation, geocodingData]);
+    fetchHourlyData();
+  }, [fetchHourlyData, currentLocation]);
 
   return (
     <div className="hourly-forecast">
