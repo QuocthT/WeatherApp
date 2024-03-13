@@ -4,7 +4,7 @@ import "./Footer.css";
 import { ReactComponent as HomeButton } from "./HomeButton.svg";
 import { ReactComponent as Plant } from "./plant.svg";
 import { ReactComponent as BurgerMenu } from "./BurgerMenu.svg";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import Main from './Right'
 import App from './App';
 import Left from './left/LeftPage'
