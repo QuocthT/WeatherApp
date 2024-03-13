@@ -3,7 +3,7 @@ import axios from "axios";
 import CurrentWeather from "./CurrentWeather.js";
 import HourlyForecast from "./HourlyForecast.js";
 const Weather = () => {
-  const [city, setCity] = useState("London"); // Or any other default city
+  const [city, setCity] = useState("London");
   const [weatherData, setWeatherData] = useState(null);
 
   const handleLocationClick = (city) => {
@@ -30,6 +30,7 @@ const Weather = () => {
   };
 
   useEffect(() => {
+    console.log("useEffect in Weather, city:", city); // Add logging
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);

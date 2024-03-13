@@ -31,23 +31,25 @@ const HourlyForecast = ({ currentLocation }) => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=metric`
     );
 
-    console.log("API Response:", forecastResponse.data);
-    // Filter for the next 24 hours with 3-hour intervals
-    const futureForecast = forecastResponse.data.list.filter((item, index) => {
-      const forecastDate = new Date(item.dt * 1000); // Convert Unix timestamp
-      const now = new Date();
-      const threeHoursFromNow = new Date(now.getTime() + 3 * 60 * 60 * 1000);
+    console.log("API Response (Full Structure):", forecastResponse);
+    console.log("API Response - List Array:", forecastResponse.data.list);
+    console.log(
+      "API Response - First List Item:",
+      forecastResponse.data.list[0]
+    );
 
-      return (
-        forecastDate >= now &&
-        forecastDate <= threeHoursFromNow &&
-        index % 3 === 0
-      );
+    // Filter for the next 24 hours with 3-hour intervals
+    const futureForecast = forecastResponse.data.list.filter((item) => {
+      const forecastDate = new Date(item.dt * 1000);
+      const now = new Date();
+      const oneDayFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours ahead
+      console.log("futureForecast item:", item);
+      return forecastDate >= now && forecastDate <= oneDayFromNow;
     });
 
     // Update hourly data
     setHourlyData(
-      futureForecast.map((item) => ({
+      futureForecast.slice(0, 8).map((item) => ({
         timePeriod: new Date(item.dt * 1000).toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -56,6 +58,7 @@ const HourlyForecast = ({ currentLocation }) => {
         temp: item.main.temp,
       }))
     );
+    console.log("hourlyData Updated:", hourlyData);
   };
 
   useEffect(() => {
@@ -63,8 +66,8 @@ const HourlyForecast = ({ currentLocation }) => {
       "useEffect triggered, City in HourlyForecast:",
       currentLocation
     );
-    if (prevLocation.current !== currentLocation) {
-      fetchHourlyData();
+    if (prevLocation.current !== currentLocation && currentLocation) {
+      fetchHourlyData(currentLocation);
       prevLocation.current = currentLocation;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
