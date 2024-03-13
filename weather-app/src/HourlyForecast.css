@@ -1,5 +1,7 @@
 .hourly-forecast {
     display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
     flex-direction: column; /* Change to 'column' if you want a vertical layout */
     align-items: center;
   }

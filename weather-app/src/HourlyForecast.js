@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment-timezone";
 import "./HourlyForecast.css";
 
-const HourlyForecast = () => {
+const HourlyForecast = ({ currentLocation, geocodingData }) => {
   const [hourlyData, setHourlyData] = useState([]);
   const [error, setError] = useState(null);
 
   const openWeatherKey = "24ce0a767ad303d9567854bce1d17ff5";
 
   const extractHourFromTimestamp = (timestamp) => {
-    const date = new Date(timestamp * 1000); // Convert timestamp to milliseconds
+    const date = new Date(timestamp * 1000);
     const hours = date.getHours();
-    return hours < 10 ? `0${hours}:00` : `${hours}:00`; // Add leading zero if needed
+    return hours < 10 ? `0${hours}:00` : `${hours}:00`;
+  };
+
+  // Function to filter only today's forecast data
+  const filterFutureData = (forecastData) => {
+    const timezone = geocodingData?.timezone;
+
+    const now = moment().tz(timezone);
+    const tomorrow = moment().add(1, "days").tz(timezone).startOf("day");
+
+    return forecastData.list.filter((item) => {
+      const forecastTime = moment.unix(item.dt).tz(timezone);
+      return forecastTime.isAfter(now) && forecastTime.isBefore(tomorrow);
+    });
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,9 +50,13 @@ const HourlyForecast = () => {
     const forecastResponse = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}&units=metric`
     );
+
+    const futureForecast = filterFutureData(forecastResponse.data);
+
+    // Update hourly data with 3-hourly intervals
     setHourlyData(
-      forecastResponse.data.list.slice(0, 8).map((item) => ({
-        hour: extractHourFromTimestamp(item.dt_txt),
+      futureForecast.map((item) => ({
+        hour: extractHourFromTimestamp(item.dt),
         icon: item.weather[0].icon,
         temp: item.main.temp,
       }))
@@ -46,8 +64,9 @@ const HourlyForecast = () => {
   };
 
   useEffect(() => {
-    fetchHourlyData();
-  }, [fetchHourlyData]);
+    fetchHourlyData(); // Triggered on city or geocodingData change
+  }, [fetchHourlyData, currentLocation, geocodingData]);
+
   return (
     <div className="hourly-forecast">
       {error ? (
