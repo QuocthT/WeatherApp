@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
-import Recommendation from "./pages/Reccomendations/recommendation.js";
+import Recommendation from "./pages/Recommendations/recommendation.js";
 import sunny from "./images/sunny.jpg";
 import rainy from "./images/rainy.jpg";
 import cloudy from "./images/clouds.jpg";
