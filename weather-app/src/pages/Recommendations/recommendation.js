@@ -11,6 +11,7 @@ const recommendation = () => {
     <div>
       <h1>Detailed Forecast</h1>
       <Recommendations/>
+      <Map />
     </div>
   );
 }
