@@ -1,59 +1,29 @@
-// Footer.js
-import React, { useState } from "react";
+import React from "react";
 import "./Footer.css";
-import { ReactComponent as HomeButton } from "./HomeButton.svg";
-import { ReactComponent as Plant } from "./plant.svg";
-import { ReactComponent as BurgerMenu } from "./BurgerMenu.svg";
-import ReactDOM from "react-dom/client";
-import Main from "./Right";
-import App from "./App";
-import Left from "./left/LeftPage";
+import { ReactComponent as HomeButton } from "./images/HomeButton.svg";
+import { ReactComponent as Plant } from "./images/plant.svg";
+import { ReactComponent as BurgerMenu } from "./images/BurgerMenu.svg";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-function Footer() {
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleClick = (buttonIndex) => {
-    if (buttonIndex === 2) {
-      root.render(
-        <React.StrictMode>
-          <Main />
-        </React.StrictMode>
-      );
-    } else if (buttonIndex === 1) {
-      root.render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      );
-    } else if (buttonIndex === 0) {
-      root.render(
-        <React.StrictMode>
-          <Left />
-        </React.StrictMode>
-      );
-    }
-    setActiveButton(buttonIndex);
-  };
+function Footer(props) {
+  // Add props parameter
 
   return (
     <footer className="app-footer">
       <button
-        className={`footer-button ${activeButton === 0 ? "active" : ""}`}
-        onClick={() => handleClick(0)}
+        className={`footer-button`}
+        onClick={() => props.onPageChange("recommendation")} // Pass intent to parent
       >
         <Plant />
       </button>
       <button
-        className={`footer-button ${activeButton === 1 ? "active" : ""}`}
-        onClick={() => handleClick(1)}
+        className={`footer-button`}
+        onClick={() => props.onPageChange("home")}
       >
         <HomeButton />
       </button>
       <button
-        className={`footer-button ${activeButton === 2 ? "active" : ""}`}
-        onClick={() => handleClick(2)}
+        className={`footer-button`}
+        onClick={() => props.onPageChange("detailed_forecast")}
       >
         <BurgerMenu />
       </button>
