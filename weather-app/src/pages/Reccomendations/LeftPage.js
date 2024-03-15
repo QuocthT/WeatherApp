@@ -1,6 +1,5 @@
 // LeftPage.js
 import React from "react";
-import Footer from "../Footer.js";
 import "./LeftPage.css";
 import Map from "./Map.js";
 import Recommendations from "./Recom.js";
@@ -11,7 +10,6 @@ function LeftPage() {
   return (
     <div className="main">
       <header className="App-header"></header>
-      <Footer />
       <Recommendations />
     </div>
   );

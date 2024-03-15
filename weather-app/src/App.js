@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
-import Recommendation from "./pages//Reccomendations/recommendation.js";
+import Recommendation from "./pages//Reccomendations/LeftPage.js";
 import PlantImage from "./images/plant.svg";
 import BurgerMenuImage from "./images/BurgerMenu.svg";
 import HomeButtonImage from "./images/HomeButton.svg";
