@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 import Home from "./pages/Home/HomePage.js";
-import Forecast from "./pages//Home/detailed_forecast.js";
+import Forecast from "./pages/Details/detailed_forecast.js";
 import Recommendation from "./pages//Reccomendations/recommendation.js";
 import PlantImage from "./images/plant.svg";
 import BurgerMenuImage from "./images/BurgerMenu.svg";
