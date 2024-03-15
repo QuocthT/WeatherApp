@@ -1,0 +1,25 @@
+.common-section{
+    margin: 1rem;
+    padding: .8rem;
+    background: linear-gradient(to bottom,#232329, #7aaa2c);
+      
+}
+
+.section{
+    
+    text-align: center;
+    border-radius: 1.5rem;
+    color:  whitesmoke;
+
+}
+
+
+
+.search-bar input {
+    padding: .5rem;
+    border-radius: 1rem;
+    width: 94%;
+    border: none;
+    font-size: 1rem;
+}
+

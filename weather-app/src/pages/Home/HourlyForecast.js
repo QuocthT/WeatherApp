@@ -7,6 +7,8 @@ const HourlyForecast = ({ currentLocation }) => {
   const [error, setError] = useState(null);
   const prevLocation = useRef(currentLocation);
   const openWeatherKey = "24ce0a767ad303d9567854bce1d17ff5";
+  
+
 
   const fetchHourlyData = async (location) => {
     console.log("fetchHourlyData called with location:", location);

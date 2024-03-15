@@ -1,0 +1,12 @@
+
+  .hourly-scroll {
+    display: flex;
+    overflow-x: auto;  /* Enable horizontal scrolling */
+  }
+  
+  .hourly-entry {
+    min-width: 80px;  /* Set a minimum width for each entry */
+    margin-right: 10px; 
+    text-align: center;
+  }
+  
