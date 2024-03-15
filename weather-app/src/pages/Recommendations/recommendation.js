@@ -6,14 +6,13 @@ import Recommendations from "./Recom.js";
 import Alerts from "./Alerts.js";
 import Sprays from "./Sprays.js";
 
-const Right = () => {
+const recommendation = () => {
   return (
     <div>
       <h1>Detailed Forecast</h1>
-      {/* Add content for the home page */}
-      <Recommendations />
+      <Recommendations/>
     </div>
   );
 }
 
-export default Right;
+export default recommendation;
