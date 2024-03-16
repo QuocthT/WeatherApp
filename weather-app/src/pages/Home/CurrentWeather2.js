@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CurrentWeather2.css";
 
 const CurrentWeather2 = ({ data, updateBackground }) => {
-  /* useEffect(() => {
+  useEffect(() => {
     if (data && data.weather && data.weather.length > 0) {
       const weatherMain = data.weather[0].main.toLowerCase();
-      updateBackground(weatherMain); // Pass the weather main to the parent component
+      let bgClass = "";
+
+      switch (weatherMain) {
+        case "rain":
+          bgClass = "rainy";
+          break;
+        case "clouds":
+          bgClass = "cloudy";
+          break;
+        case "snow":
+          bgClass = "snowy";
+          break;
+        default:
+          bgClass = "sunny";
+      }
+
+      // Assuming your App container has an id of 'app-container'
+      document.getElementById("app-container").classList = bgClass;
     }
-  }, [data, updateBackground]); */
+  }, [data]);
 
   if (!data) return null;
 

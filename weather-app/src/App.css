@@ -1,0 +1,44 @@
+.sunny {
+    background-image: url(./images/sunny.jpg); 
+  }
+  
+  .rainy {
+    background-image: url(./images/rainy.jpg); 
+  }
+  
+  .cloudy {
+     background-image: url(./images/clouds.jpg); 
+   }
+  
+  .snowy { 
+    background-image: url(./images/snowy.jpg); 
+  }
+  
+  html, body {
+    height: 100%; 
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Or your preferred font */
+  }
+  
+  #app-container {
+    height: 100%; 
+    background-repeat: no-repeat; 
+    background-size: cover;    
+    background-position: center; 
+  
+    display: flex; /* Use flexbox for easier layout */
+    flex-direction: column; /* Arrange elements vertically */
+  }
+
+  @media (max-width: 768px) {
+    .common-section {
+      margin: 0.5rem; /* Reduce margins on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hourly-scroll { 
+      flex-wrap: wrap; /* Allow hourly entries to wrap on small screens */
+    }
+  }
+  

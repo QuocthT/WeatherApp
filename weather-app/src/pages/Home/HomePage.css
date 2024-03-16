@@ -1,9 +1,12 @@
-.common-section{
+.common-section {
     margin: 1rem;
-    padding: .8rem;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
-      opacity: .9;
-}
+    padding: 1rem; /* Slightly increased padding */
+    background: linear-gradient(to bottom, #232329, #7aaa2c);
+    opacity: 0.9;
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* More subtle shadow */
+    flex: 1; /* Allow sections to grow based on available space */
+  }
 
 .section{
     
@@ -12,8 +15,6 @@
     color:  whitesmoke;
 
 }
-
-
 
 .search-bar input {
     padding: .5rem;
