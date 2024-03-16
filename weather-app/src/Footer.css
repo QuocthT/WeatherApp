@@ -3,14 +3,18 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 15px;
+    padding-bottom: 5px ;
     position: fixed; 
     bottom: 0;
     width: 100%; 
   }
   
   .footer-button {
-    background-image: linear-gradient(to bottom, #4F8000, #2F313A)
+    background: linear-gradient(to bottom,#232329, #7aaa2c);
+    opacity: .7;
+    padding: 8px 10px 8px 10px;
+    border-radius: 1.5rem;
+    border: none;
   }
   
   .footer-button.active svg {

@@ -12,14 +12,18 @@ const WeeklyWeather = ({ data }) => {
       <div className="weekly-list">
         {data.list.map((day, index) => (
           <div className="weekly-entry" key={index}>
-            <span>{moment(day.dt * 1000).format("dddd")}</span>
-            <img
-              src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-              alt={day.weather[0].description}
-            />
-            <div className="weekly-temp">
+            <div className="daily-temp text-middle">
+              <span>{moment(day.dt * 1000).format("dddd")}</span>
+            </div>
+            <div className="daily-temp">
+              <img
+                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+                alt="Weather Icon"
+              />
+            </div>
+            <div className="daily-temp text-middle">
               <span className="min">{Math.round(day.temp.min)}°C</span>
-              <span className="separator">-</span>
+              <span className="separator"></span>
               <span className="max">{Math.round(day.temp.max)}°C</span>
             </div>
           </div>

@@ -9,4 +9,9 @@
     margin-right: 10px; 
     text-align: center;
   }
+
+  
+  .hourly-scroll::-webkit-scrollbar {
+    display: none;  /* Hide the scrollbar */
+  }
   

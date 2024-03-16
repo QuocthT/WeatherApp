@@ -23,7 +23,7 @@ const CurrentWeather2 = ({ data, updateBackground }) => {
       </div>
 
       <div className="temperature">
-        <span>{main.temp.toFixed()} °</span>
+        <span>{main.temp.toFixed()}°</span>
       </div>
       <div className="weather-info">
         <div>
@@ -31,8 +31,8 @@ const CurrentWeather2 = ({ data, updateBackground }) => {
             <span>{weather[0].description}</span>
           </div>
           <div>
-            <span className="max-mini">Min : {main.temp_min.toFixed()} °</span>
-            <span className="max-mini">Max : {main.temp_max.toFixed()} °</span>
+            <span className="max-mini">Min : {main.temp_min.toFixed()}°</span>
+            <span className="max-mini">Max : {main.temp_max.toFixed()}°</span>
           </div>
 
           <div className="location">
