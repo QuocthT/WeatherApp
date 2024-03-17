@@ -21,7 +21,6 @@ const CurrentWeather2 = ({ data, updateBackground }) => {
           bgClass = "sunny";
       }
 
-      // Assuming your App container has an id of 'app-container'
       document.getElementById("app-container").classList = bgClass;
     }
   }, [data]);

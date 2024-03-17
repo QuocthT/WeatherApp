@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useState } from "react";
 import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
@@ -10,7 +8,12 @@ import Footer from "./Footer.js";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
-  const [city, setCity] = useState("london");
+
+  const [city, setCity] = useState(() => {
+    const storedCity = localStorage.getItem("city");
+    return storedCity ?? "london";
+  });
+
   const [currentData] = useState(null);
 
   const handlePageChange = (page) => {
