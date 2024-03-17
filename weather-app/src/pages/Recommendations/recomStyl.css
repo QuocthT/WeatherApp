@@ -1,11 +1,76 @@
 /* recomStyl.css */
-.recom-page-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background-image: url(https://via.placeholder.com/360x800);
-  }
-  
-  /* Add the styling from your previous code */
-  /* Make sure to update the styles to use the appropriate classnames or elements */
-  
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Example background color */
+  font-family: Arial, sans-serif; /* Example font */
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.recom-container,
+.alert-container,
+.crop-container {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  background-color: #fff; /* Example background color */
+}
+
+.recom-container h2,
+.alert-container h2,
+.crop-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.recom-container input[type="text"],
+.alert-container input[type="text"],
+.crop-container input[type="text"],
+.recom-container button,
+.alert-container button,
+.crop-container button {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.recom-container button,
+.alert-container button,
+.crop-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alert-list,
+.crop-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.alert-list-item,
+.crop-list-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.alert-list-item:last-child,
+.crop-list-item:last-child {
+  margin-bottom: 0;
+}
