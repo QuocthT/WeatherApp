@@ -1,49 +1,32 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./detailed_forecast.css";
 
-const Search = () => {
-  const [city, setCity] = useState("");
+function Main({ city }) {
+  // Receive city as a prop
   const [weatherData, setWeatherData] = useState(null);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=46b4e1f330aeb5aa3194e803bf334549`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a44d3dff57de62f60c1d1a9793f439d5`
       );
       setWeatherData(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    fetchData();
+    if (city) {
+      // Check if city exists before fetching
+      fetchData();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleInputChange = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchData();
-  };
+  }, [city]);
 
   return (
     <div id="container">
-      <form id="searchBox" onSubmit={handleSubmit}>
-        <input
-          className="search"
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={handleInputChange}
-        />
-      </form>
       {weatherData ? (
         <>
           <div id="details" className="bigBox">
@@ -104,15 +87,6 @@ const Search = () => {
       ) : (
         <div id="loading">Enter City Name</div>
       )}
-    </div>
-  );
-};
-
-function Main() {
-  return (
-    <div className="main">
-      <header className="App-header"></header>
-      <Search />
     </div>
   );
 }

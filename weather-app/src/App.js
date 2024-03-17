@@ -10,6 +10,7 @@ import Footer from "./Footer.js";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
+  const [city, setCity] = useState("london");
   const [currentData] = useState(null);
 
   const handlePageChange = (page) => {
@@ -20,8 +21,8 @@ const App = () => {
     <div id="app-container" className="App">
       <div>
         <div className="content">
-          {currentPage === "home" && <Home />}
-          {currentPage === "detailed_forecast" && <Forecast />}
+          {currentPage === "home" && <Home city={city} setCity={setCity} />}
+          {currentPage === "detailed_forecast" && <Forecast city={city} />}
           {currentPage === "recommendation" && <Recommendation />}
         </div>
         <CurrentWeather2 data={currentData} />
