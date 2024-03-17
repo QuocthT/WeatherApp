@@ -1,0 +1,25 @@
+/* popup-style.css */
+
+.popup-weather {
+    padding: 20px;
+  }
+  
+  .popup-weather img {
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  

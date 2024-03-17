@@ -1,21 +1,4 @@
-.weather-map-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .weather-info {
-    margin-bottom: 20px;
-  }
-  
-  .map-container {
-    position: relative;
-  }
-  
-  .map-image {
-    max-width: 100%;
-  }
-  
-  /* Add your additional CSS styling here */
-  
-  
+.map-container {
+  height: 400px;
+  width: 100%;
+}
