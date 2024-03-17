@@ -17,7 +17,7 @@
   html, body {
     height: 100%; 
     margin: 0;
-    font-family: 'Arial', sans-serif; /* Or your preferred font */
+    font-family: 'Arial', sans-serif; 
   }
   
   #app-container {
@@ -25,20 +25,19 @@
     background-repeat: no-repeat; 
     background-size: cover;    
     background-position: center; 
-  
-    display: flex; /* Use flexbox for easier layout */
-    flex-direction: column; /* Arrange elements vertically */
+    display: flex; 
+    flex-direction: column; 
   }
 
   @media (max-width: 768px) {
     .common-section {
-      margin: 0.5rem; /* Reduce margins on smaller screens */
+      margin: 0.5rem; 
     }
   }
   
   @media (max-width: 480px) {
     .hourly-scroll { 
-      flex-wrap: wrap; /* Allow hourly entries to wrap on small screens */
+      flex-wrap: wrap; 
     }
   }
   
