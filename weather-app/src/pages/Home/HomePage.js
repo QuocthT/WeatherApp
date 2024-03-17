@@ -16,7 +16,7 @@ const HomePage = () => {
     try {
       const [currentRes, hourlyRes, weeklyRes] = await Promise.all([
         axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3131b6007da7e494a368d9da91dc641a&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a44d3dff57de62f60c1d1a9793f439d5&units=metric`
         ),
         axios.get(
           `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city}&appid=a44d3dff57de62f60c1d1a9793f439d5&cnt=24&units=metric`
