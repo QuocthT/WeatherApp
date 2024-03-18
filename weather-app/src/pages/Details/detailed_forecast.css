@@ -13,6 +13,7 @@
   align-items: center;
   padding: 1.5em;
     border-radius: 10px;
+    opacity: 0.9 ;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
@@ -55,6 +56,7 @@
   align-items: center;
   padding: 1em;
     border-radius: 10px;
+    opacity: 0.9;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
@@ -63,6 +65,7 @@
   align-items: center;
   padding: 1em;
     border-radius: 10px;
+    opacity: 0.9;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
