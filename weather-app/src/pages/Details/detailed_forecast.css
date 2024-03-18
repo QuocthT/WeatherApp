@@ -1,34 +1,13 @@
 #container{
     display: grid;
     grid-template-areas:
-        'search search'
         'details details'
         'section1 section1'
         'section2 section2';
     gap: 0.5rem;
     margin: 0.5rem;
-}
-
-.search{
-    width: 100%;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-}
-
-#searchBox{
-    grid-area: search;
-    display: flex;
-    justify-content: center;
-    padding: 1em;
     margin-right: 25em;
     margin-left: 25em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    border-radius: 10px;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
 #details{
@@ -41,10 +20,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;  
-    padding-left: 12em;
-    padding-right: 12em;
-    margin-right: 25em;
-    margin-left: 25em;
+    padding-left: 7em;
+    padding-right: 7em;
     margin-bottom: 1em;
     border-radius: 10px;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
@@ -67,8 +44,8 @@
 }
 
 #outer div img{
-    width: 10em;
-    height: 10em;
+    width: 15em;
+    height: 15em;
 }
 
 #outer #title{
@@ -88,10 +65,8 @@
     justify-content: space-between;
     align-items: center;  
     padding: 2em;
-    padding-left: 12em;
-    padding-right: 12em;
-    margin-right: 25em;
-    margin-left: 25em;
+    padding-left: 16em;
+    padding-right: 16em;
     margin-bottom: 1em;
     border-radius: 10px;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
@@ -103,24 +78,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 2em;  
-    padding-left: 12em;
-    padding-right: 12em;
-    margin-right: 25em;
-    margin-left: 25em;
+    padding-left: 17em;
+    padding-right: 17em;
     border-radius: 10px;
     background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
-#loading{
-    grid-area: details;
-    display: flex;
-    justify-content: center;
-    padding: 2em;  
-    align-self: center;
-    padding-left: 12em;
-    padding-right: 12em;
-    margin-right: 25em;
-    margin-left: 25em;
-    border-radius: 10px;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
+.data{
+    margin-left: 3%;
+}
+
+#sunset{
+    margin-left: 10%;
+}
+
+#direction{
+    padding-left: 10%;
 }
