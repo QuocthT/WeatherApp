@@ -1,36 +1,45 @@
 // Recommendation.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import "./recomStyl.css";
 import Map from "./Map";
 
-const Recommendation = () => {
+const Recommendation = ({ city }) => {
   // State variables for alerts
-  const [alertDescription, setAlertDescription] = useState('');
-  const [alertFinishingTime, setAlertFinishingTime] = useState('');
+  const [alertDescription, setAlertDescription] = useState("");
+  const [alertFinishingTime, setAlertFinishingTime] = useState("");
   const [alertsList, setAlertsList] = useState([]);
 
   // Function to add alert
   const addAlert = () => {
     if (alertDescription && alertFinishingTime) {
-      setAlertsList([...alertsList, { description: alertDescription, finishingTime: alertFinishingTime }]);
-      setAlertDescription(''); // Clear input fields after adding
-      setAlertFinishingTime('');
+      setAlertsList([
+        ...alertsList,
+        { description: alertDescription, finishingTime: alertFinishingTime },
+      ]);
+      setAlertDescription(""); // Clear input fields after adding
+      setAlertFinishingTime("");
     }
   };
 
   // State variables for crop information
-  const [cropType, setCropType] = useState('');
-  const [cropQuantity, setCropQuantity] = useState('');
+  const [cropType, setCropType] = useState("");
+  const [cropQuantity, setCropQuantity] = useState("");
   const [cropList, setCropList] = useState([]);
 
   // Function to add crop information
   const addCrop = () => {
     if (cropType && cropQuantity) {
       setCropList([...cropList, { type: cropType, quantity: cropQuantity }]);
-      setCropType(''); // Clear input fields after adding
-      setCropQuantity('');
+      setCropType(""); // Clear input fields after adding
+      setCropQuantity("");
     }
   };
+
+  useEffect(() => {
+    if (city) {
+      // Fetch recommendations based on the city
+    }
+  }, [city]);
 
   return (
     <div id="container">
@@ -66,7 +75,8 @@ const Recommendation = () => {
         <ul className="alert-list">
           {alertsList.map((alert, index) => (
             <li key={index} className="alert-list-item">
-              <strong>{alert.description}</strong> - Finishing Time: {alert.finishingTime}
+              <strong>{alert.description}</strong> - Finishing Time:{" "}
+              {alert.finishingTime}
             </li>
           ))}
         </ul>
@@ -99,12 +109,12 @@ const Recommendation = () => {
           ))}
         </ul>
       </div>
-        {/* Include the Map component */}
-        <div className="map-container">
-          <Map />
-        </div>
+      {/* Include the Map component */}
+      <div className="map-container">
+        <Map />
+      </div>
     </div>
   );
-}
+};
 
 export default Recommendation;

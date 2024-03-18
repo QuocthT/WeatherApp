@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
 import Recommendation from "./pages/Recommendations/recommendation.js";
@@ -8,13 +8,17 @@ import Footer from "./Footer.js";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
-
   const [city, setCity] = useState(() => {
     const storedCity = localStorage.getItem("city");
     return storedCity ?? "london";
   });
 
   const [currentData] = useState(null);
+
+  useEffect(() => {
+    // Update localStorage whenever city changes
+    localStorage.setItem("city", city);
+  }, [city]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -26,7 +30,7 @@ const App = () => {
         <div className="content">
           {currentPage === "home" && <Home city={city} setCity={setCity} />}
           {currentPage === "detailed_forecast" && <Forecast city={city} />}
-          {currentPage === "recommendation" && <Recommendation />}
+          {currentPage === "recommendation" && <Recommendation city={city} />}
         </div>
         <CurrentWeather2 data={currentData} />
         <Footer onPageChange={handlePageChange} />

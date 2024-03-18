@@ -61,39 +61,39 @@ function Main({ city }) {
           </div>
           <div id="section1">
             <div id="airQuality" className="box">
-              Cloudiness: 
-              <div className="data">
-                {weatherData.clouds.all}%
-              </div>
+              Cloudiness:
+              <div className="data">{weatherData.clouds.all}%</div>
             </div>
             <div id="direction" className="box">
-              <div id="words">
-                Wind Direction: 
-              </div>
-              <div className="data">
-                {weatherData.wind.deg}°
-              </div>
+              <div id="words">Wind Direction:</div>
+              <div className="data">{weatherData.wind.deg}°</div>
             </div>
           </div>
           <div id="section2">
             <div id="sunrise" className="box">
-              Sunrise: 
+              Sunrise:
               <div className="data">
                 {" "}
-                {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
+                  [],
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }
+                )}
               </div>
             </div>
             <div id="sunset" className="box">
               Sunset:
               <div className="data">
                 {" "}
-                {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
+                  [],
+                  {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }
+                )}
               </div>
             </div>
           </div>

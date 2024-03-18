@@ -6,8 +6,7 @@ import HourlyWeather from "./HourlyWeather";
 import WeeklyWeather from "./WeeklyWeather";
 import "./HomePage.css";
 
-const HomePage = () => {
-  const [city, setCity] = useState("london");
+const HomePage = ({ city, setCity }) => {
   const [currentData, setCurrentData] = useState(null);
   const [hourlyData, setHourlyData] = useState(null);
   const [weeklyData, setWeeklyData] = useState(null);
