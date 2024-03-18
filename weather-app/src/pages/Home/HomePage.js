@@ -31,6 +31,7 @@ const HomePage = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+    localStorage.setItem("city", city);
   };
 
   useEffect(() => {
