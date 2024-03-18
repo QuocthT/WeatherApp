@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./recomStyl.css";
 import Map from "./Map";
-import CurrentWeather from "../Home/CurrentWeather2.js";
 import recData from "./recData.json";
 
 const Recommendation = ({ city }) => {
@@ -16,7 +15,7 @@ const Recommendation = ({ city }) => {
       const [currentRes] = await Promise.all([
         axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9dd77ed418cc13a9dea204f8b91aaf61&units=metric`
-        )
+        ),
       ]);
       setCurrentData(currentRes.data);
     } catch (error) {
@@ -26,6 +25,7 @@ const Recommendation = ({ city }) => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
   // Function to filter and get tips based on the current weather condition
