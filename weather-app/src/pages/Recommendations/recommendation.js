@@ -1,6 +1,7 @@
 // Recommendation.js
 import React, { useState } from 'react';
 import "./recomStyl.css";
+import Map from "./Map";
 
 const Recommendation = () => {
   // State variables for alerts
@@ -98,6 +99,10 @@ const Recommendation = () => {
           ))}
         </ul>
       </div>
+        {/* Include the Map component */}
+        <div className="map-container">
+          <Map />
+        </div>
     </div>
   );
 }

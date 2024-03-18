@@ -20,10 +20,12 @@ body {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 20px;
+  padding-bottom: 40px; /* Added padding to accommodate input bar */
   width: 90%;
   max-width: 600px;
   margin-bottom: 20px;
   background-color: #fff; /* Example background color */
+  background: linear-gradient(to bottom,#232329, #7aaa2c);
 }
 
 .recom-container h2,
@@ -40,7 +42,7 @@ body {
 .alert-container button,
 .crop-container button {
   margin-bottom: 10px;
-  width: 100%;
+  width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -73,4 +75,16 @@ body {
 .alert-list-item:last-child,
 .crop-list-item:last-child {
   margin-bottom: 0;
+}
+
+/* Map.css */
+
+.map-container {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  background-color: #fff;
 }

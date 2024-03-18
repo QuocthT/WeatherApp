@@ -7,12 +7,14 @@ const Map = () => {
 
   useEffect(() => {
     const apiKey = '9dd77ed418cc13a9dea204f8b91aaf61';
-    const op = 'PA0';
+    const op = 'TA2';
     const z = '{z}';
     const x = '{x}';
     const y = '{y}';
-    const date = '1552861800'; // Example date, you can change it as needed
-    const mapUrl = `http://maps.openweathermap.org/maps/2.0/weather/${op}/${z}/${x}/${y}?date=${date}&appid=${apiKey}`;
+    const fillBound = true;
+    const opacity = 0.6;
+    const palette = '-65:821692;-55:821692;-45:821692;-40:821692;-30:8257db;-20:208cec;-10:20c4e8;0:23dddd;10:c2ff28;20:fff028;25:ffc228;30:fc8014';
+    const mapUrl = `http://maps.openweathermap.org/maps/2.0/weather/${op}/${z}/${x}/${y}?appid=${apiKey}&fill_bound=${fillBound}&opacity=${opacity}&palette=${palette}`;
     setMapUrl(mapUrl);
   }, []);
 
