@@ -1,0 +1,25 @@
+{
+    "tips": {
+      "rain": [
+        "During rainy weather, ensure proper drainage in your fields to prevent waterlogging and root rot.",
+        "Consider planting crops that are resistant to waterlogging and can thrive in wet conditions, such as rice or certain varieties of wheat.",
+        "Implement strategies to minimize soil erosion, such as contour plowing or planting cover crops."
+      ],
+      "clouds": [
+        "In cloudy weather, monitor humidity levels to prevent fungal diseases in crops.",
+        "Focus on crops that tolerate lower light conditions, such as leafy greens or root vegetables.",
+        "Utilize row covers or greenhouses to provide additional protection for sensitive crops against temperature fluctuations associated with cloud cover."
+      ],
+      "snow": [
+        "Before the snow season, ensure proper insulation and protection for perennial crops to prevent frost damage.",
+        "Consider using cold frames or high tunnels to extend the growing season and protect crops from snow accumulation.",
+        "Plan for snow removal strategies to maintain access to fields and protect infrastructure such as greenhouses or storage facilities."
+      ],
+      "default": [
+        "During clear or sunny weather, focus on optimizing irrigation schedules to ensure adequate moisture for crops.",
+        "Implement mulching techniques to conserve soil moisture and regulate soil temperature during periods of high heat.",
+        "Monitor pest populations closely, as warm and sunny weather can lead to increased insect activity."
+      ]
+    }
+  }
+  

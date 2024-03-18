@@ -1,13 +1,41 @@
-// Recommendation.js
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./recomStyl.css";
 import Map from "./Map";
+import CurrentWeather from "../Home/CurrentWeather2.js";
+import recData from "./recData.json";
 
 const Recommendation = ({ city }) => {
-  // State variables for alerts
   const [alertDescription, setAlertDescription] = useState("");
   const [alertFinishingTime, setAlertFinishingTime] = useState("");
   const [alertsList, setAlertsList] = useState([]);
+  const [currentData, setCurrentData] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const [currentRes] = await Promise.all([
+        axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9dd77ed418cc13a9dea204f8b91aaf61&units=metric`
+        )
+      ]);
+      setCurrentData(currentRes.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [city]);
+
+  // Function to filter and get tips based on the current weather condition
+  const getTipsByWeather = () => {
+    if (currentData && currentData.weather && currentData.weather.length > 0) {
+      const weatherMain = currentData.weather[0].main.toLowerCase();
+      return recData.tips[weatherMain] || recData.tips.default;
+    }
+    return recData.tips.default;
+  };
 
   // Function to add alert
   const addAlert = () => {
@@ -35,21 +63,15 @@ const Recommendation = ({ city }) => {
     }
   };
 
-  useEffect(() => {
-    if (city) {
-      // Fetch recommendations based on the city
-    }
-  }, [city]);
-
   return (
     <div id="container">
       <div className="recom-container">
         <h2>Recommendations</h2>
+        {/* Display weather-based recommendations */}
         <ul>
-          <li>Plant crops that are suitable for the current season.</li>
-          <li>Use organic fertilizers to improve soil health.</li>
-          <li>Implement crop rotation to prevent soil diseases.</li>
-          <li>Check weather forecasts regularly for upcoming conditions.</li>
+          {getTipsByWeather().map((tip, index) => (
+            <li key={index}>{tip}</li>
+          ))}
         </ul>
       </div>
 
@@ -109,6 +131,7 @@ const Recommendation = ({ city }) => {
           ))}
         </ul>
       </div>
+
       {/* Include the Map component */}
       <div className="map-container">
         <Map />
