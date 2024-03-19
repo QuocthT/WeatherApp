@@ -40,6 +40,7 @@ function Main({ city }) {
                   height={30}
                 />
               </div>
+              <div className="location">{city}</div>
             </div>
             <div id="inner">
               <div id="feel" className="box">
