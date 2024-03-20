@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
+import Map from './pages/Recommendations/Map.js';
 import Recommendation from "./pages/Recommendations/recommendation.js";
 import "./App.css";
 import "./reset.css";
