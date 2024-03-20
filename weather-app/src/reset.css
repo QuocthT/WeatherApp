@@ -1,0 +1,10 @@
+html, body ,a,  header, h3, article,p,footer, div, input, button, form, label, img, svg {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  text-decoration: none;
+}

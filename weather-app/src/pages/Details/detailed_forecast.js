@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./detailed_forecast.css";
+import sunrise from  "./sunrise.svg";
+import wind from "./wind.svg";
+import cloud from "./cloudiness.svg";
 
-function Main({ city }) {
+function Detailed_Forecast({ city }) {
   // Receive city as a prop
   const [weatherData, setWeatherData] = useState(null);
 
@@ -29,50 +32,56 @@ function Main({ city }) {
     <div id="container">
       {weatherData ? (
         <>
-          <div id="details" className="bigBox">
+          <div id="details" className="bigBox common-section">
             <div id="outer">
-              <div id="title">Details</div>
+              <div className="title">Details</div>
               <div>
                 <img
                   src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
                   alt="Weather"
-                  width={30}
-                  height={30}
                 />
               </div>
               <div className="location">{city}</div>
             </div>
             <div id="inner">
               <div id="feel" className="box">
-                Feels Like: {weatherData.main.feels_like}°C
+                Feels Like: <span className="value"> {weatherData.main.feels_like}°C</span>
               </div>
               <div id="humidity" className="box">
-                Humidity: {weatherData.main.humidity}%
+                Humidity: <span className="value">{weatherData.main.humidity}% </span>
               </div>
               <div id="visibility" className="box">
-                Visibility: {weatherData.visibility}m
+                Visibility: <span className="value">{weatherData.visibility}m </span>
               </div>
               <div id="pressure" className="box">
-                Atmospheric Pressure: {weatherData.main.pressure} hPa
+                Atmospheric Pressure: <span className="value">{weatherData.main.pressure} hPa </span>
               </div>
               <div id="speed" className="box">
-                Wind Speed: {weatherData.wind.speed}m/s
+                Wind Speed: <span className="value">{weatherData.wind.speed}m/s </span>
               </div>
             </div>
           </div>
-          <div id="section1">
-            <div id="airQuality" className="box">
-              Cloudiness:
+          <div id="section1" className="common-section">
+            <div id="cloudiness" className="box">
+              <div className="title">Cloudiness </div>
+              <div>
+                <img src={cloud} alt="cloud" />
+              </div>
               <div className="data">{weatherData.clouds.all}%</div>
             </div>
-            <div id="direction" className="box">
-              <div id="words">Wind Direction:</div>
+            <div id="wind" className="box">
+              <div className="title">Wind Direction</div>
+              <div>
+                <img src={wind} alt="cloud" />
+              </div>
               <div className="data">{weatherData.wind.deg}°</div>
             </div>
           </div>
-          <div id="section2">
-            <div id="sunrise" className="box">
-              Sunrise:
+          <div className="common-section riseAndSet">
+            <div className="title">Sunrise and Sunset</div>
+          <div id="section2" >
+            <div id="sunrise">
+              
               <div className="data">
                 {" "}
                 {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
@@ -84,8 +93,11 @@ function Main({ city }) {
                 )}
               </div>
             </div>
-            <div id="sunset" className="box">
-              Sunset:
+            <div id="image" >
+                <img src={sunrise} alt="sunrise"  />
+            </div>
+            <div id="sunset">
+              
               <div className="data">
                 {" "}
                 {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
@@ -98,6 +110,7 @@ function Main({ city }) {
               </div>
             </div>
           </div>
+          </div>
         </>
       ) : (
         <div id="loading">Enter City Name</div>
@@ -106,4 +119,4 @@ function Main({ city }) {
   );
 }
 
-export default Main;
+export default Detailed_Forecast;

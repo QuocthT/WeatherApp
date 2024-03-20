@@ -1,98 +1,102 @@
-#container {
-    display: grid;
-    grid-template-areas:
-      'details details'
-      'section1 section2'; /* Two sections in a row */
-    gap: 0.5rem;
-    margin: 2em 5%; /* Adjust margins as needed */
+
+.common-section{
+    margin: 1rem;
+    padding: 1rem;
+    background: linear-gradient(to bottom, #232329, #7aaa2c);
+    opacity: 0.9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 1.5rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* More subtle shadow */
+    
+}
+
+#section2 {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-around; /* Distribute items with space around them */
+    align-items: center;  /* Vertically center items */
+
   }
 
-#details{
-    display: flex; 
-  justify-content: space-between; 
-  align-items: center;
-  padding: 1.5em;
-    border-radius: 10px;
-    opacity: 0.9 ;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
-}
-
-#inner{
-    grid-area: inner;
-    margin-top: 2em;
-}
-
-#inner div{
-    margin-left: 5em;
-    padding-bottom: 2em;
-}
-
-#outer{
-    grid-area: outer;
-    margin-right: 5em;
-    color: white;
-}
-
-#outer div img{
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-#outer #title{
-    display: flex;
+.title{
+    font-size: 1.2rem;
+    font-weight: bold;
     justify-content: center;
 }
 
+#cloudiness{
+    padding-right: 1.3rem;
+    border-right: white 1px solid;
+}
+
+#section1 .box img{
+    display: block;    /* Ensures the image is treated as a block element */
+    margin-left: auto; /* Centers horizontally */
+    margin-right: auto;
+  }
+
+  #section1 .box {
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Horizontally center elements */
+  }
+  
+  #section1 .box .data {
+    margin-top: 0.5rem; /* Add space above the data */
+  }
+
+
+#section2 img{
+    width: 180px;
+    height: 120px;
+}
+
+.riseAndSet{
+    width: 100%; /* Set width to 100% of parent */
+}
+    
+#details{
+    width: 100%;
+    height: 200%;
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute items with space around them */
+    align-items: center;  /* Vertically center items */
+    padding: 1.5em;
+    font-weight: 700;
+}
+
 .box{  
-    display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     color: white;
 }
 
-#section1{
-    display: flex;
-  align-items: center;
-  padding: 1em;
-    border-radius: 10px;
-    opacity: 0.9;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
+#section1 {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-around; /* Distribute items with space around them */
+    align-items: center;  /* Vertically center items */
+    height: 3rem; /* Set height to 100% of parent */
+    width: 100%; /* Set width to 100% of parent */
 }
 
-#section2{
-    display: flex;
-  align-items: center;
-  padding: 1em;
-    border-radius: 10px;
-    opacity: 0.9;
-    background: linear-gradient(to bottom,#232329, #7aaa2c);
+#outer{
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Horizontally center elements */
+    margin-right: 5em;
 }
 
-.data{
-    margin-left: 3%;
-}
 
-#sunset{
-    margin-left: 10%;
-}
-
-#direction{
-    padding-left: 10%;
-}
-
-@media (max-width: 800px) { 
-    #container {
-      grid-template-areas:
-        'details'
-        'section1'
-        'section2'; 
-      margin-left: 10%;
-      margin-right: 10%;
-    }
   
-    #details, #section1, #section2 {
-       padding: 1em; 
-    }
-  }
+.value{
+    display: block;
+    text-align: left;
+    margin-top: .3rem;
+    font-weight: 300;
+}
+
+.location{
+    text-transform: capitalize;
+}
   

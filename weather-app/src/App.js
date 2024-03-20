@@ -3,7 +3,7 @@ import Home from "./pages/Home/HomePage.js";
 import Forecast from "./pages/Details/detailed_forecast.js";
 import Recommendation from "./pages/Recommendations/recommendation.js";
 import "./App.css";
-import CurrentWeather2 from "./pages/Home/CurrentWeather2.js";
+import "./reset.css";
 import Footer from "./Footer.js";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     return storedCity ?? "london";
   });
 
-  const [currentData] = useState(null);
+ 
 
   useEffect(() => {
     // Update localStorage whenever city changes
@@ -32,7 +32,6 @@ const App = () => {
           {currentPage === "detailed_forecast" && <Forecast city={city} />}
           {currentPage === "recommendation" && <Recommendation city={city} />}
         </div>
-        <CurrentWeather2 data={currentData} />
         <Footer onPageChange={handlePageChange} />
       </div>
     </div>
