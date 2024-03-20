@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./recomStyl.css";
-import Map from "./Map";
-import recData from "./recData.json";
+import "./recomStyl.css"; // Styling of the page
+import Map from "./Map"; // Section that displays a map
+import recData from "./recData.json"; // Data of recommendations based on the weather (rain, clouds, snow, default)
 
 const Recommendation = ({ city }) => {
+  // Declares the state variables and its setter functions
+  // These are state variables for alerts
   const [alertDescription, setAlertDescription] = useState("");
   const [alertFinishingTime, setAlertFinishingTime] = useState("");
   const [alertsList, setAlertsList] = useState([]);
+
+  // These are state variables for crop info
+  const [cropType, setCropType] = useState("");
+  const [cropQuantity, setCropQuantity] = useState("");
+  const [cropList, setCropList] = useState([]);
+
+  // This is state variable for city's current weather data
   const [currentData, setCurrentData] = useState(null);
 
+  // This gets weather data from a particular city
   const fetchData = async () => {
     try {
       const [currentRes] = await Promise.all([
@@ -25,10 +35,9 @@ const Recommendation = ({ city }) => {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
-  // Function to filter and get tips based on the current weather condition
+  // It filters and gets tips based on the current weather
   const getTipsByWeather = () => {
     if (currentData && currentData.weather && currentData.weather.length > 0) {
       const weatherMain = currentData.weather[0].main.toLowerCase();
@@ -37,37 +46,36 @@ const Recommendation = ({ city }) => {
     return recData.tips.default;
   };
 
-  // Function to add alert
+  // This is a function to add alert
   const addAlert = () => {
     if (alertDescription && alertFinishingTime) {
       setAlertsList([
         ...alertsList,
         { description: alertDescription, finishingTime: alertFinishingTime },
       ]);
-      setAlertDescription(""); // Clear input fields after adding
+      // Input fields, where user writes description and end time of an alert
+      setAlertDescription("");
       setAlertFinishingTime("");
     }
   };
 
-  // State variables for crop information
-  const [cropType, setCropType] = useState("");
-  const [cropQuantity, setCropQuantity] = useState("");
-  const [cropList, setCropList] = useState([]);
-
-  // Function to add crop information
+  // This is a function to add alert info
   const addCrop = () => {
     if (cropType && cropQuantity) {
       setCropList([...cropList, { type: cropType, quantity: cropQuantity }]);
-      setCropType(""); // Clear input fields after adding
+      // Input fields, where user writes crop type and its quantity
+      setCropType("");
       setCropQuantity("");
     }
   };
 
   return (
+    
     <div id="container">
+      {/* Recommendations Section */}
       <div className="recom-container">
         <h2>Recommendations</h2>
-        {/* Display weather-based recommendations */}
+        {/* It display recommendations based on the city's current weather*/}
         <ul>
           {getTipsByWeather().map((tip, index) => (
             <li key={index}>{tip}</li>
@@ -78,7 +86,7 @@ const Recommendation = ({ city }) => {
       {/* Alerts Section */}
       <div className="alert-container">
         <h2>Alerts</h2>
-        {/* Input fields for new alert */}
+        {/* It displays an alert section and its inputs (description and end time), which a user can manipulate*/}
         <input
           type="text"
           value={alertDescription}
@@ -93,7 +101,7 @@ const Recommendation = ({ city }) => {
         />
         <button onClick={addAlert}>Add Alert</button>
 
-        {/* Display list of alerts */}
+        {/* After user inputs data, it is added to the alert list, which is displayed below alerts' inputs*/}
         <ul className="alert-list">
           {alertsList.map((alert, index) => (
             <li key={index} className="alert-list-item">
@@ -107,7 +115,7 @@ const Recommendation = ({ city }) => {
       {/* Crop Storage Section */}
       <div className="crop-container">
         <h2>Crop Storage</h2>
-        {/* Input fields for new crop information */}
+        {/* It displays a crop section and its inputs (crop type and quantity), which a user can manipulate*/}
         <input
           type="text"
           value={cropType}
@@ -122,7 +130,7 @@ const Recommendation = ({ city }) => {
         />
         <button onClick={addCrop}>Add Crop</button>
 
-        {/* Display list of crop information */}
+        {/* After user inputs data, it is added to the crops list, which is displayed below crops' inputs*/}
         <ul className="crop-list">
           {cropList.map((crop, index) => (
             <li key={index} className="crop-list-item">
@@ -132,7 +140,7 @@ const Recommendation = ({ city }) => {
         </ul>
       </div>
 
-      {/* Include the Map component */}
+      {/* Map Section */}
       <div className="map-container">
         <Map />
       </div>
