@@ -1,7 +1,5 @@
 /* recomStyl.css */
 
-
-
 #container {
   display: flex;
   flex-direction: column;
@@ -13,7 +11,7 @@
 
 .recom-container,
 .alert-container,
-.crop-container{
+.crop-container {
   border-radius: 1.5rem;
   padding: 20px;
   padding-bottom: 40px; /* Added padding to accommodate input bar */
@@ -21,7 +19,8 @@
   max-width: 600px;
   margin-bottom: 20px;
   background-color: #fff; /* Example background color */
-  background: linear-gradient(to bottom,#232329, #7aaa2c);
+  opacity: 0.9;
+  background: linear-gradient(to bottom, #232329, #7aaa2c);
   color: white;
   font-weight: lighter;
   font-size: 1.2rem;
@@ -44,7 +43,7 @@
 .alert-container h2,
 .crop-container h2 {
   font-size: 1.5rem;
-  color:  wheat;
+  color: white;
   margin-bottom: 15px;
 }
 
@@ -55,7 +54,9 @@
 .alert-container button,
 .crop-container button {
   margin-bottom: 10px;
-  width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+  width: calc(
+    100% - 22px
+  ); /* Adjusted width to accommodate padding and border */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
