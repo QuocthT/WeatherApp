@@ -1,32 +1,29 @@
-/* recomStyl.css */
+ /* recomStyl.css */
 
-#container {
+ #container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  margin: 0 auto; /* Center the container horizontally */
+  margin: 1rem;
   font-family: Arial, sans-serif;
-  width: 90%; /* Take up 90% of the screen width */
-  max-width: 1200px; /* Limit maximum width */
 }
 
 .recom-container,
 .alert-container,
-.crop-container,
-.map-container {
+.crop-container {
   border-radius: 1.5rem;
   padding: 20px;
   padding-bottom: 40px; /* Added padding to accommodate input bar */
-  width: 100%; /* Make the container fill the entire width of its parent */
-  margin-bottom: 20px; /* Add space between containers */
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
   background-color: #fff; /* Example background color */
   opacity: 0.9;
   background: linear-gradient(to bottom, #232329, #7aaa2c);
   color: white;
   font-weight: lighter;
   font-size: 1.2rem;
-  box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .recom-container ul li {
@@ -99,7 +96,8 @@
 .map-container {
   border-radius: 1.5rem;
   padding: 20px;
-  width: 100%; /* Make the container fill the entire screen */
-  margin-bottom: 20px; /* Add space between containers */
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 20px;
   background-color: #fff;
 }
