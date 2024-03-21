@@ -54,7 +54,7 @@ function Detailed_Forecast({ city }) {
                 Visibility: <span className="value">{weatherData.visibility}m </span>
               </div>
               <div id="pressure" className="box1">
-                Atmospheric Pressure: <span className="value">{weatherData.main.pressure} hPa </span>
+                Atmospheric <div>Pressure:</div> <span className="value">{weatherData.main.pressure} hPa </span>
               </div>
               <div id="speed" className="box1">
                 Wind Speed: <span className="value">{weatherData.wind.speed}m/s </span>
