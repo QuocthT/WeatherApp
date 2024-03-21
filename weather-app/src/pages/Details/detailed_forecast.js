@@ -44,19 +44,19 @@ function Detailed_Forecast({ city }) {
               <div className="location">{city}</div>
             </div>
             <div id="inner">
-              <div id="feel" className="box">
+              <div id="feel" className="box1">
                 Feels Like: <span className="value"> {weatherData.main.feels_like}°C</span>
               </div>
-              <div id="humidity" className="box">
+              <div id="humidity" className="box1">
                 Humidity: <span className="value">{weatherData.main.humidity}% </span>
               </div>
-              <div id="visibility" className="box">
+              <div id="visibility" className="box1">
                 Visibility: <span className="value">{weatherData.visibility}m </span>
               </div>
-              <div id="pressure" className="box">
+              <div id="pressure" className="box1">
                 Atmospheric Pressure: <span className="value">{weatherData.main.pressure} hPa </span>
               </div>
-              <div id="speed" className="box">
+              <div id="speed" className="box1">
                 Wind Speed: <span className="value">{weatherData.wind.speed}m/s </span>
               </div>
             </div>
