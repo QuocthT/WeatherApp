@@ -25,9 +25,10 @@
     justify-content: center;
 }
 
-#cloudiness{
-    padding-right: 1.3rem;
-    border-right: white 1px solid;
+#line {
+    width: 1px;
+    height: 100px; /* Adjust height as needed */
+    background-color: white;
 }
 
 #section1 .box img{
@@ -60,7 +61,7 @@
     width: 100%;
     height: 200%;
     display: flex; /* Enable flexbox layout */
-    justify-content: space-between; /* Distribute items with space around them */
+    justify-content: center; /* Distribute items with space around them */
     align-items: center;  /* Vertically center items */
     padding: 1.5em;
     font-weight: 700;
@@ -83,12 +84,16 @@
 #outer{
     display: flex; /* Enable flexbox layout */
     flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
     align-items: center; /* Horizontally center elements */
-    margin-right: 5em;
+    margin-right: 20%;
 }
 
-
-  
+#inner{
+    justify-content: center;
+    margin-left: 20%;
+}
+ 
 .value{
     display: block;
     text-align: left;

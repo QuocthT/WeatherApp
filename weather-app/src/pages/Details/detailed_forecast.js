@@ -69,6 +69,8 @@ function Detailed_Forecast({ city }) {
               </div>
               <div className="data">{weatherData.clouds.all}%</div>
             </div>
+            <div id="line">
+            </div>
             <div id="wind" className="box">
               <div className="title">Wind Direction</div>
               <div>
