@@ -1,9 +1,13 @@
+/* Styles for the CurrentWeather2 component */
+
+/* Styles for displaying the main temperature */
 .temperature{
     font-size: 2.3rem;
     font-weight: 900;
   
 }
 
+/* Styles for the weather icon */
 .current-weather img{
    
     margin: 0 auto;
@@ -11,21 +15,23 @@
     padding: 0 auto;
 }
 
+/* Capitilize the weather description */
 .weather-description{
     text-transform: capitalize;
 }
 
-.location{
-    
+
+.location{ 
     font-weight: bold;
 }
 
+/* Styles for the overall current weather container */
 .current-weather{
     height: 160px;
     color:  #7e7e7e;
 }
 
-
+/* Add space between min and max temperature */
 .max-mini{
     padding: 0 .5rem;
 }

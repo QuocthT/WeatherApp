@@ -1,17 +1,17 @@
+/* This CSS file is used to style the hourly weather section of homepage */
 
-  .hourly-scroll {
-    display: flex;
-    overflow-x: auto;  /* Enable horizontal scrolling */
-  }
-  
-  .hourly-entry {
-    min-width: 80px;  /* Set a minimum width for each entry */
-    margin-right: 10px; 
-    text-align: center;
-  }
+.hourly-scroll {
+  display: flex;
+  overflow-x: auto;  /* Enable horizontal scrolling */
+}
 
-  
-  .hourly-scroll::-webkit-scrollbar {
-    display: none;  /* Hide the scrollbar */
-  }
-  
+.hourly-entry {
+  min-width: 80px;  /* Set a minimum width for each entry */
+  margin-right: 10px; 
+  text-align: center;
+}
+
+
+.hourly-scroll::-webkit-scrollbar {
+  display: none;  /* Hide the scrollbar */
+}

@@ -3,6 +3,8 @@ import moment from 'moment';
 import './HourlyWeather.css';
 
 const HourlyWeather = ({ data }) => {
+
+  // Display loading message if data is not available
   if (!data) {
     return <div>Loading...</div>;
   }

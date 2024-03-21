@@ -8,14 +8,14 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: white;
     border-radius: 1.5rem; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* More subtle shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
     
 }
 
 #section2 {
     display: flex; /* Enable flexbox layout */
-    justify-content: space-around; /* Distribute items with space around them */
-    align-items: center;  /* Vertically center items */
+    justify-content: space-around; 
+    align-items: center;  
 
   }
 
@@ -27,24 +27,24 @@
 
 #line {
     width: 1px;
-    height: 100px; /* Adjust height as needed */
+    height: 100px; 
     background-color: white;
 }
 
 #section1 .box img{
-    display: block;    /* Ensures the image is treated as a block element */
-    margin-left: auto; /* Centers horizontally */
+    display: block;    
+    margin-left: auto; 
     margin-right: auto;
   }
 
   #section1 .box {
-    display: flex; /* Enable Flexbox */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Horizontally center elements */
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
   }
   
   #section1 .box .data {
-    margin-top: 0.5rem; /* Add space above the data */
+    margin-top: 0.5rem; 
   }
 
 
@@ -54,15 +54,15 @@
 }
 
 .riseAndSet{
-    width: 100%; /* Set width to 100% of parent */
+    width: 100%; 
 }
     
 #details{
     width: 100%;
     height: 200%;
     display: flex; /* Enable flexbox layout */
-    justify-content: space-between; /* Distribute items with space around them */
-    align-items: center;  /* Vertically center items */
+    justify-content: space-between; 
+    align-items: center;  
     padding: 1.5em;
     font-weight: 700;
 }
@@ -74,19 +74,19 @@
 }
 
 #section1 {
-    display: flex; /* Enable flexbox layout */
-    justify-content: space-around; /* Distribute items with space around them */
-    align-items: center;  /* Vertically center items */
-    height: 3rem; /* Set height to 100% of parent */
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;  
+    height: 3rem;
     width: 100%; /* Set width to 100% of parent */
 }
 
 #outer{
     width: 100%;
-    display: flex; /* Enable flexbox layout */
+    display: flex; 
     flex-direction: column; /* Stack elements vertically */
     justify-content: center;
-    align-items: center; /* Horizontally center elements */
+    align-items: center; 
 }
 
 #inner{

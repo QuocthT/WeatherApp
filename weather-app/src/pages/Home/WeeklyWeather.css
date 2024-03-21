@@ -1,5 +1,7 @@
+/* This is the CSS file for the WeeklyWeather section of homepage */
+
+/* Align the entries in a row */
 .weekly-list {
-  /* Align the entries in a row */
   display: flex;
   flex-direction: column;
 }
@@ -17,9 +19,9 @@
   align-items: center;
 }
 
+/* Target direct children divs */
 .weekly-entry > div {
-  /* Target direct children divs */
-  flex: 1; /* This is the key property */
+  flex: 1; 
 }
 
 img {

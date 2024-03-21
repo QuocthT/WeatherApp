@@ -7,17 +7,22 @@ import "./reset.css";
 import Footer from "./Footer.js";
 
 const App = () => {
+
+  // State to manage current page
   const [currentPage, setCurrentPage] = useState("home");
+
+  // State to manage the city (with initial value from localStorage)
   const [city, setCity] = useState(() => {
     const storedCity = localStorage.getItem("city");
-    return storedCity ?? "london";
+    return storedCity ?? "london";  //default city : London
   });
 
+  // useEffect to update localStorage when city changes
   useEffect(() => {
-    // Update localStorage whenever city changes
     localStorage.setItem("city", city);
   }, [city]);
 
+  // Function to handle page change
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };

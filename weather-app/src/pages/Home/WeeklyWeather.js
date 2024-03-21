@@ -3,6 +3,8 @@ import moment from "moment";
 import "./WeeklyWeather.css";
 
 const WeeklyWeather = ({ data }) => {
+
+  //Handle loading state
   if (!data) {
     return <div>Loading...</div>;
   }
