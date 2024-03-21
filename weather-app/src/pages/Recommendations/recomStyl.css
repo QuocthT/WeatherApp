@@ -1,5 +1,6 @@
  /* recomStyl.css */
 
+ /*Styling of of the whole page*/
  #container {
   display: flex;
   flex-direction: column;
@@ -9,16 +10,17 @@
   font-family: Arial, sans-serif;
 }
 
+/*Styling of the recommendations, alerts and crops sections*/
 .recom-container,
 .alert-container,
 .crop-container {
   border-radius: 1.5rem;
   padding: 20px;
-  padding-bottom: 40px; /* Added padding to accommodate input bar */
+  padding-bottom: 40px; 
   width: 90%;
   max-width: 600px;
   margin-bottom: 20px;
-  background-color: #fff; /* Example background color */
+  background-color: #fff;
   opacity: 0.9;
   background: linear-gradient(to bottom, #232329, #7aaa2c);
   color: white;
@@ -26,19 +28,22 @@
   font-size: 1.2rem;
 }
 
+/*Styling of the indexes of the list of the recommendations*/
 .recom-container ul li {
-  margin-bottom: 10px; /* Add spacing between list items */
-  border: 1px solid #ccc; /* Add border to each list item */
-  padding: 1rem; /* Add padding inside each list item */
-  font-family: Arial, sans-serif; /* Use a common sans-serif font */
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
   border-radius: 1.5rem;
 }
 
+/*Styling of the list of recommendations*/
 .recom-container ul {
-  padding: 0; /* Remove default padding */
-  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  list-style: none;
 }
 
+/*Styling of the section's headings*/
 .recom-container h2,
 .alert-container h2,
 .crop-container h2 {
@@ -47,22 +52,19 @@
   margin-bottom: 15px;
 }
 
-.recom-container input[type="text"],
+/*Styling of the input areas and buttons of alerts and crops sections */
 .alert-container input[type="text"],
 .crop-container input[type="text"],
-.recom-container button,
 .alert-container button,
 .crop-container button {
   margin-bottom: 10px;
-  width: calc(
-    100% - 22px
-  ); /* Adjusted width to accommodate padding and border */
+  width: calc(100% - 22px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.recom-container button,
+/*More styling of the alerts and crops sections */
 .alert-container button,
 .crop-container button {
   background-color: #007bff;
@@ -72,12 +74,14 @@
   cursor: pointer;
 }
 
+/*Styling of alerts and crops lists */
 .alert-list,
 .crop-list {
   list-style-type: none;
   padding: 0;
 }
 
+/*Styling of alerts and crops lists items */
 .alert-list-item,
 .crop-list-item {
   border: 1px solid #ccc;
@@ -86,13 +90,13 @@
   margin-bottom: 10px;
 }
 
+/* Styling for the last list item in a list */
 .alert-list-item:last-child,
 .crop-list-item:last-child {
   margin-bottom: 0;
 }
 
-/* Map.css */
-
+/*Styling of the map's section */
 .map-container {
   border-radius: 1.5rem;
   padding: 20px;

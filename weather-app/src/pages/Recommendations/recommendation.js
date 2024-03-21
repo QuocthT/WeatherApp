@@ -149,3 +149,4 @@ const Recommendation = ({ city }) => {
 };
 
 export default Recommendation;
+
